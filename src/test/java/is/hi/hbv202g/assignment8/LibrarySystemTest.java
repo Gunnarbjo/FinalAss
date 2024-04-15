@@ -24,7 +24,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testAddBookWithTitleAndNameOfSingleAuthor() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         assert(librarySystem.findBookByTitle("The Hobbit").getTitle().equals("The Hobbit"));
     }
     /*
@@ -34,7 +34,7 @@ public class LibrarySystemTest {
     public void testAddBookWithTitleAndAuthorList() throws UserOrBookDoesNotExistException, EmptyAuthorListException{
         List<Author> authors = new ArrayList<>();
         authors.add(new Author("J.R.R. Tolkien"));
-        librarySystem.addBookWithTitleAndAuthorList("The Hobbit", authors);
+        librarySystem.addBook("The Hobbit", authors);
         assert(librarySystem.findBookByTitle("The Hobbit").getTitle().equals("The Hobbit"));
     }
     /*
@@ -58,7 +58,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testFindBookByTitle() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         assert(librarySystem.findBookByTitle("The Hobbit").getTitle().equals("The Hobbit"));
     }
     /*
@@ -88,7 +88,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testBorrowBook() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
     }
@@ -97,7 +97,7 @@ public class LibrarySystemTest {
      */
     @Test(expected = UserOrBookDoesNotExistException.class)
     public void testBorrowBookException() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
@@ -115,7 +115,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testExtendLending() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findFacultyMemberByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         librarySystem.extendLending(librarySystem.findFacultyMemberByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"), LocalDate.now().plusDays(10));
@@ -125,7 +125,7 @@ public class LibrarySystemTest {
      */
     @Test(expected = UserOrBookDoesNotExistException.class)
     public void testExtendLendingException() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.extendLending(librarySystem.findFacultyMemberByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"), LocalDate.now().plusDays(10));
     }
@@ -134,7 +134,7 @@ public class LibrarySystemTest {
      */
     @Test(expected = UserOrBookDoesNotExistException.class)
     public void testExtendLendingException2() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.addFacultyMemberUser("Jón Jónsson2", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
@@ -146,7 +146,7 @@ public class LibrarySystemTest {
      */ 
     @Test
     public void testExtendLending2() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         librarySystem.extendLending(librarySystem.findFacultyMemberByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"), LocalDate.now().plusDays(10));
@@ -156,7 +156,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testExtendLending3() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         librarySystem.extendLending(librarySystem.findFacultyMemberByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"), LocalDate.now().minusDays(10));
@@ -167,7 +167,7 @@ public class LibrarySystemTest {
      */
     @Test(expected = UserOrBookDoesNotExistException.class)
     public void testReturnBook() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         librarySystem.returnBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
@@ -177,7 +177,7 @@ public class LibrarySystemTest {
      */
     @Test(expected = UserOrBookDoesNotExistException.class)
     public void testReturnBookException() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.returnBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
     }
@@ -195,7 +195,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testReturnBookException3() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addStudentUser("Jón Jónsson", true);
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         librarySystem.returnBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
@@ -205,7 +205,7 @@ public class LibrarySystemTest {
      */
     @Test(expected = UserOrBookDoesNotExistException.class)
     public void testReturnBook2() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         librarySystem.returnBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
@@ -216,7 +216,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testGetBooks() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         assert(librarySystem.getBooks().size() == 1);
     }
     /*
@@ -232,7 +232,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testGetLendings() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         assert(librarySystem.getLendings().size() == 1);
@@ -243,7 +243,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testOverdueForUser() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         assert(librarySystem.overdueForUser("Jón Jónsson").size() == 0);
@@ -253,7 +253,7 @@ public class LibrarySystemTest {
      */
     @Test
     public void testBooksOnLoanToUser() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         assert(librarySystem.booksOnLoanToUser("Jón Jónsson").size() == 1);
@@ -263,7 +263,7 @@ public class LibrarySystemTest {
      */
     @Test(expected = UserOrBookDoesNotExistException.class)
     public void testReturnBookFromUser() throws UserOrBookDoesNotExistException{
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Hobbit", "J.R.R. Tolkien");
+        librarySystem.addBook("The Hobbit", "J.R.R. Tolkien");
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.borrowBook(librarySystem.findUserByName("Jón Jónsson"), librarySystem.findBookByTitle("The Hobbit"));
         librarySystem.returnBookFromUser("Jón Jónsson", "The Hobbit");
@@ -284,7 +284,7 @@ public class LibrarySystemTest {
         ArrayList<Author> authors = new ArrayList<>();
         authors.add(new Author("J.R.R. Tolkien"));
         authors.add(new Author("Jón Jónsson"));
-        librarySystem.addBookWithTitleAndAuthorList("The Hobbit", authors);
+        librarySystem.addBook("The Hobbit", authors);
         librarySystem.addFacultyMemberUser("Jón Jónsson", "Tölvunarfræði");
         librarySystem.lendBookToUser("Jón Jónsson", "The Hobbit");
     }

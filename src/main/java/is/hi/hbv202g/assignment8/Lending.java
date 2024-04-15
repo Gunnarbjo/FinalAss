@@ -8,6 +8,7 @@ import java.time.LocalDate;
  */
 public class Lending {
 
+    private static final int LENDING_PERIOD = 30;
     private LocalDate dueDate;
     private Book book;
     private User user;
@@ -20,7 +21,7 @@ public class Lending {
      */
     public Lending(Book book, User user){
         
-        this.dueDate = LocalDate.now().plusDays(30);
+        this.dueDate = LocalDate.now().plusDays(LENDING_PERIOD);
         this.book = book;
         this.user = user;
     }

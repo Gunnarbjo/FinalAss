@@ -57,7 +57,7 @@ public class Book {
     public void setAuthors(List<Author> authors) throws EmptyAuthorListException{
 
         if(authors.isEmpty()){
-            throw new EmptyAuthorListException("Author list is empty");
+            throw new EmptyAuthorListException("No authors found for book" + this.title);
         }
         this.authors = authors;
     }

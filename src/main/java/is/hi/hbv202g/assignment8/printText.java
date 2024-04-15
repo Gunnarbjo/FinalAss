@@ -6,7 +6,7 @@ import java.util.List;
  * printText class - prints text to the console
  */
 public class printText {
-    static LibrarySystem librarySystem = new LibrarySystem();
+    static LibrarySystem librarySystem;
 
     /**
      * Prints the choices for the user
@@ -53,6 +53,7 @@ public class printText {
      * Prints a list of books
      */
     public static void printBookList(List<Book> books) {
+        System.out.println("Books:");
         for (Book book : books) {
             System.out.println(book.getTitle());
         }
@@ -84,9 +85,8 @@ public class printText {
      * Prints a list of books
      */
     public static void listBooks() {
-        System.out.println("Books:");
-        for (Book book : librarySystem.getBooks()) {
-            System.out.println(book.getTitle());
-        }
+        List <Book> books = librarySystem.getBooks();
+        System.out.println("BookSize: " + books.size());
+        printBookList(books);
     }
 }

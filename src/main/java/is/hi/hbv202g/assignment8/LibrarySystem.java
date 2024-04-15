@@ -19,9 +19,10 @@ public class LibrarySystem {
      */
     public LibrarySystem(){
 
-        books = new ArrayList<>();
-        users = new ArrayList<>();
-        lendings = new ArrayList<>();   
+        books = new ArrayList<Book>();
+        users = new ArrayList<User>();
+        lendings = new ArrayList<Lending>();
+
     
     }
 
@@ -32,7 +33,7 @@ public class LibrarySystem {
      * @param authorName name of the author
      * @throws EmptyAuthorListException 
      */
-    public void addBookWithTitleAndNameOfSingleAuthor(String title, String authorName){
+    public void addBook(String title, String authorName){
         this.books.add(new Book(title, authorName));
     }
 
@@ -44,7 +45,7 @@ public class LibrarySystem {
      * @param authors list of authors
      * @throws EmptyAuthorListException if the list of authors is empty
      */
-    public void addBookWithTitleAndAuthorList(String title, List<Author> authors) throws EmptyAuthorListException{
+    public void addBook(String title, List<Author> authors) throws EmptyAuthorListException{
 
         this.books.add(new Book(title, authors));     
         if(authors.isEmpty()){
@@ -222,6 +223,7 @@ public class LibrarySystem {
      * @return list of books
      */
     public List<Book> getBooks() {
+        System.out.println("BookSize in getBooks: " + books.size());
         return new ArrayList<>(books);
     }
 

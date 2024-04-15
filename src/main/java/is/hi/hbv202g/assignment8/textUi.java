@@ -18,7 +18,11 @@ public class textUi {
      */
 	public textUi(LibrarySystem myLibrarySystem) {
         librarySystem = myLibrarySystem;
+        printText.librarySystem = myLibrarySystem;
         addInitialData();
+    }
+    public LibrarySystem getLibrarySystem() {
+        return librarySystem;
     }
 
     /**
@@ -44,7 +48,8 @@ public class textUi {
                 printText.noString();
                 scanner.nextLine();
             }
-
+            scanner.nextLine();
+            clearScreen();
         }
 
     }
@@ -209,7 +214,7 @@ public class textUi {
         String title = scanner.nextLine();
         printText.bookAuthor();
         String authorName = scanner.nextLine();
-        librarySystem.addBookWithTitleAndNameOfSingleAuthor(title, authorName);
+        librarySystem.addBook(title, authorName);
 
     }
 
@@ -227,19 +232,19 @@ public class textUi {
     private void addInitialData() {
         try {
             // Adding books
-            librarySystem.addBookWithTitleAndNameOfSingleAuthor("1984", "George Orwell");
-            librarySystem.addBookWithTitleAndNameOfSingleAuthor("Brave New World", "Aldous Huxley");
-            librarySystem.addBookWithTitleAndNameOfSingleAuthor("Fahrenheit 451", "Ray Bradbury");
-            librarySystem.addBookWithTitleAndNameOfSingleAuthor("Dune", "Frank Herbert");
-            librarySystem.addBookWithTitleAndNameOfSingleAuthor("Neuromancer", "William Gibson");
-            librarySystem.addBookWithTitleAndNameOfSingleAuthor("Snow Crash", "Neal Stephenson");
-            librarySystem.addBookWithTitleAndNameOfSingleAuthor("The Left Hand of Darkness", "Ursula K. Le Guin");
-            librarySystem.addBookWithTitleAndNameOfSingleAuthor("Hyperion", "Dan Simmons");
-            librarySystem.addBookWithTitleAndNameOfSingleAuthor("Foundation", "Isaac Asimov");
+            librarySystem.addBook("1984", "George Orwell");
+            librarySystem.addBook("Brave New World", "Aldous Huxley");
+            librarySystem.addBook("Fahrenheit 451", "Ray Bradbury");
+            librarySystem.addBook("Dune", "Frank Herbert");
+            librarySystem.addBook("Neuromancer", "William Gibson");
+            librarySystem.addBook("Snow Crash", "Neal Stephenson");
+            librarySystem.addBook("The Left Hand of Darkness", "Ursula K. Le Guin");
+            librarySystem.addBook("Hyperion", "Dan Simmons");
+            librarySystem.addBook("Foundation", "Isaac Asimov");
     
-            librarySystem.addBookWithTitleAndAuthorList("American Gods", List.of(new Author("Neil Gaiman")));
-            librarySystem.addBookWithTitleAndAuthorList("Blindsight", List.of(new Author("Peter Watts")));
-            librarySystem.addBookWithTitleAndAuthorList("The Expanse", List.of(new Author("James S.A. Corey")));
+            librarySystem.addBook("American Gods", List.of(new Author("Neil Gaiman")));
+            librarySystem.addBook("Blindsight", List.of(new Author("Peter Watts")));
+            librarySystem.addBook("The Expanse", List.of(new Author("James S.A. Corey")));
     
             // Adding students
             librarySystem.addStudentUser("Harry Potter", true);

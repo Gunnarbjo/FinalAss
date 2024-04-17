@@ -9,6 +9,17 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>HBV202G Assignment8</name>
+    <description>Final assignment in course HBV202G, using a skeleton form assignment 8</description>
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>License</url>
+        </license>
+    </licenses>
+    <organization>
+        <name>University of Iceland</name>
+        <url>https://www.hi.is</url>
+    </organization>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

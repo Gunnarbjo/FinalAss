@@ -1,13 +1,39 @@
-# HBV202GAssignment8
-A Maven project skeleton. The provided Maven POM sets the Java version to 17.
+# HBV202G Software Development at the University of Iceland.
 
-All classes need to be located in Java package `is.hi.hbv202g.assignment8`.
+This project is the final assignemt for HBV202G-2024. The project is originally project 8 Library systems but with added features.
 
-Class and method names of the submitted solution need to be **exactly** the same 
-as in the UML class diagram in the assignment PDF. 
+## Authors
 
-If you like, you can import from project directory `UML` the file 
-`library_system.uxf` into the online UML editor https://www.umletino.com/ 
-and copy/paste from there class and method names: click on a class and then, 
-you can copy from the `properties` window on the right hand side class 
-and method names.
+The group for this project included
+
+- [Gunnar Björn Þrastarson](/gunnarbjo)
+- [Halldóra Birta Sigfúsdóttir](/halldorabirta2001)
+
+## Project commands
+
+The project is done using maven so the commands come from there
+
+### Compilation
+
+Compile the project using the following command: mvn compile
+
+### Test
+
+Test the code using the following command: mvn test
+
+### Execute
+
+Execute the code using the following commands:  mvn exec:java
+
+### Packaging
+
+Package the project using the following command: mvn package
+
+
+### Documentation
+
+Generate documentation using the following command: mvn site
+
+## Additional options to run
+
+click and run "run.sh" file and the programm will build and run
